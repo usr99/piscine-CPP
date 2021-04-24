@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   ISquad.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/23 17:35:12 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/24 01:05:43 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#ifndef ISQUAD_H
+# define ISQUAD_H
 
-# include <iostream>
-# include "Weapon.hpp"
+#include "ISpaceMarine.hpp"
 
-class HumanA
+class ISquad  
 {
 	public:
-
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
-
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
+	
+		virtual ~ISquad() {}
+		
+		virtual int				getCount() const = 0;
+		virtual ISpaceMarine*	getUnit(int) const = 0;
+		virtual int				push(ISpaceMarine*) = 0;
 };
 
 #endif

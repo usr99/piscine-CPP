@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/24 02:39:27 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/24 02:40:14 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#ifndef IMATERIASOURCE_H
+# define IMATERIASOURCE_H
 
-# include <iostream>
-# include "Weapon.hpp"
+# include "AMateria.hpp"
 
-class HumanA
+class IMateriaSource
 {
 	public:
 
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
+		virtual ~IMateriaSource() {}
 
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
+		virtual void		learnMateria(AMateria*) = 0;
+		virtual AMateria*	createMateria(std::string const & type) = 0;
 };
 
 #endif

@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/24 01:47:03 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/24 01:57:07 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#ifndef CURE_H
+# define CURE_H
+	
+# include "AMateria.hpp"
 
-# include <iostream>
-# include "Weapon.hpp"
-
-class HumanA
+class Cure : public AMateria
 {
 	public:
 
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
+		Cure();
+		virtual ~Cure();
 
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
+		virtual Cure*	clone(void) const;
+		virtual void	use(ICharacter& target);
 };
 
 #endif

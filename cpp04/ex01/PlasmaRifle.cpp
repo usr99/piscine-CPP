@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   PlasmaRifle.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/23 03:48:48 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/23 04:03:35 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#include "PlasmaRifle.hpp"  
+	
+PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21) {}
+	
+PlasmaRifle::~PlasmaRifle() {}
 
-# include <iostream>
-# include "Weapon.hpp"
-
-class HumanA
-{
-	public:
-
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
-
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
-};
-
-#endif
+void	PlasmaRifle::attack(void) const { std::cout << "* piouuu piouuu piouuu *" << std::endl; }

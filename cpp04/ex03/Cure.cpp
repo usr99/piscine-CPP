@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Cure.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/24 01:52:00 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/24 01:55:40 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#include "Cure.hpp"  
+	
+Cure::Cure() : AMateria("cure") {}
 
-# include <iostream>
-# include "Weapon.hpp"
+Cure::~Cure() {}
 
-class HumanA
+Cure*	Cure::clone(void) const
 {
-	public:
+	Cure*	ptr = new Cure;
 
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
+	*ptr = *this;
+	return (ptr);
+}
 
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
-};
-
-#endif
+void	Cure::use(ICharacter& target)
+{
+	AMateria::use(target);
+	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+}

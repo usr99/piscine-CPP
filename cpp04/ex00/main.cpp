@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/23 02:25:21 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/23 03:08:45 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#include "Sorcerer.hpp"
+#include "Peon.hpp"
+#include "Murloc.hpp"
 
-# include <iostream>
-# include "Weapon.hpp"
-
-class HumanA
+int main()
 {
-	public:
-
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
-
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
-};
-
-#endif
+	Sorcerer	robert("Robert", "the Magnificent");
+	Victim		jim("Jimmy");
+	Peon		joe("Joe");
+	Murloc		bourbie("Bourbie");
+	
+	std::cout << robert << jim << joe << bourbie;
+	
+	robert.polymorph(jim);
+	robert.polymorph(joe);
+	robert.polymorph(bourbie);
+	
+	return (0);
+}

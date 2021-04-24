@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/24 01:52:00 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/24 01:58:13 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#include "Ice.hpp"  
+	
+Ice::Ice() : AMateria("ice") {}
 
-# include <iostream>
-# include "Weapon.hpp"
+Ice::~Ice() {}
 
-class HumanA
+Ice*	Ice::clone(void) const
 {
-	public:
+	Ice*	ptr = new Ice;
 
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
+	*ptr = *this;
+	return (ptr);
+}
 
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
-};
-
-#endif
+void	Ice::use(ICharacter& target)
+{
+	AMateria::use(target);
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}

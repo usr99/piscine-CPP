@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/21 02:31:51 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/21 14:48:35 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#ifndef FRAGTRAP_H
+# define FRAGTRAP_H
 
 # include <iostream>
-# include "Weapon.hpp"
+# include "ClapTrap.hpp"
 
-class HumanA
+class FragTrap : public ClapTrap
 {
 	public:
 
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
+		FragTrap();
+		FragTrap(std::string const name);
+		FragTrap(FragTrap const& src);
+		~FragTrap();
 
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
+		void		rangedAttack(std::string const& target);
+		void		meleeAttack(std::string const& target);
+		void		vaulthunter_dot_exe(std::string const& target);
 };
 
 #endif

@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/23 04:08:27 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/23 05:23:00 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#ifndef ENEMY_H
+# define ENEMY_H
 
 # include <iostream>
-# include "Weapon.hpp"
 
-class HumanA
+class Enemy
 {
 	public:
+		
+		Enemy(int hp, std::string const& type);
+		Enemy(Enemy const& src);
+		virtual ~Enemy();
+		
+		const std::string	getType(void) const;
+		int					getHP(void) const;
+		virtual void		takeDamage(int damage);
 
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
+		Enemy&				operator=(Enemy const& src);
 
-		void				attack(void) const;
+	protected:
 
-	private:
+		Enemy();
 
-		std::string			_sName;
-		Weapon&				_refWeapon;
+		std::string			_sType;
+		int					_nHP;
 };
 
 #endif

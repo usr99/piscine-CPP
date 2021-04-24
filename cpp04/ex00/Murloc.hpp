@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Murloc.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/23 02:12:29 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/23 03:00:15 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#ifndef MURLOC_H
+# define MURLOC_H
 
-# include <iostream>
-# include "Weapon.hpp"
+# include "Victim.hpp"
 
-class HumanA
+class Murloc : public Victim
 {
 	public:
 
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
+		Murloc(std::string name);
+		virtual ~Murloc();
 
-		void				attack(void) const;
+		virtual void	getPolymorphed(void) const;
 
 	private:
 
-		std::string			_sName;
-		Weapon&				_refWeapon;
+		Murloc();
+
 };
 
 #endif

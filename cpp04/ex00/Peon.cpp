@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Peon.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/23 02:34:49 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/23 03:22:29 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#include "Peon.hpp"
 
-# include <iostream>
-# include "Weapon.hpp"
+Peon::Peon(std::string name) : Victim(name) { std::cout << "Zog zog." << std::endl; }
 
-class HumanA
+Peon::~Peon() { std::cout << "Bleuark..." << std::endl; }
+
+void Peon::getPolymorphed(void) const
 {
-	public:
-
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
-
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
-};
-
-#endif
+	std::cout << this->getName() << " has been turned into a pink pony!" << std::endl;
+}

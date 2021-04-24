@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Ashbringer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/23 03:47:19 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/23 16:52:50 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#ifndef ASHBRINGER_H
+# define ASHBRINGER_H
 
-# include <iostream>
-# include "Weapon.hpp"
+# include "AWeapon.hpp"
 
-class HumanA
+class Ashbringer : public AWeapon
 {
 	public:
 
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
+		Ashbringer();
+		virtual ~Ashbringer();
 
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
+		virtual void	attack(void) const;
 };
 
 #endif

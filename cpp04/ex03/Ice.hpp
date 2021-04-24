@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/24 01:47:03 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/24 01:53:28 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#ifndef ICE_H
+# define ICE_H
+	
+# include "AMateria.hpp"
 
-# include <iostream>
-# include "Weapon.hpp"
-
-class HumanA
+class Ice : public AMateria
 {
 	public:
 
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
+		Ice();
+		virtual ~Ice();
 
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
+		virtual Ice*	clone(void) const;
+		virtual void	use(ICharacter& target);
 };
 
 #endif

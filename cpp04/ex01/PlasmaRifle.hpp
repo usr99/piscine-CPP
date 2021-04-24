@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/23 03:47:19 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/23 04:03:41 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#ifndef PLASMARIFLE_H
+# define PLASMARIFLE_H
 
-# include <iostream>
-# include "Weapon.hpp"
+# include "AWeapon.hpp"
 
-class HumanA
+class PlasmaRifle : public AWeapon
 {
 	public:
 
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
+		PlasmaRifle();
+		virtual ~PlasmaRifle();
 
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
+		virtual void	attack(void) const;
 };
 
 #endif

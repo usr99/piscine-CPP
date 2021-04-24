@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   AWeapon.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/23 03:17:47 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/23 05:19:56 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#ifndef AWEAPON_H
+# define AWEAPON_H
 
 # include <iostream>
-# include "Weapon.hpp"
 
-class HumanA
+class AWeapon  
 {
 	public:
 
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
+		AWeapon(std::string const& name, int apcost, int damage);
+		AWeapon(AWeapon const& src);
+		virtual ~AWeapon();
+		
+		const std::string	getName(void) const;
+		int					getAPCost(void) const;
+		int					getDamage(void) const;
+		virtual void		attack(void) const = 0;
 
-		void				attack(void) const;
+		AWeapon&			operator=(AWeapon const& src);
 
-	private:
+	protected:
+
+		AWeapon();
 
 		std::string			_sName;
-		Weapon&				_refWeapon;
+		int					_nApCost;
+		int					_nDamage;
 };
 
 #endif

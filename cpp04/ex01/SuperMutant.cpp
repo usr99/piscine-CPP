@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   SuperMutant.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 17:55:58 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/19 18:22:05 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/23 04:14:41 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/23 04:21:05 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  HUMAN_A_H
-# define HUMAN_A_H
+#include "SuperMutant.hpp"  
 
-# include <iostream>
-# include "Weapon.hpp"
+SuperMutant::SuperMutant() : Enemy(170, "Super Mutant") { std::cout << "Gaaah. Me want smash heads!" << std::endl; }
 
-class HumanA
+SuperMutant::~SuperMutant() { std::cout << "Aaargh..." << std::endl; }
+
+void			SuperMutant::takeDamage(int damage)
 {
-	public:
+	if (this->_nHP < 0)
+		return ;
 
-		HumanA(std::string name, Weapon& weapon);
-		~HumanA();
-
-		void				attack(void) const;
-
-	private:
-
-		std::string			_sName;
-		Weapon&				_refWeapon;
-};
-
-#endif
+	damage = std::min(damage - 3, this->_nHP);
+	this->_nHP -= damage;
+}
