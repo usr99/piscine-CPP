@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 17:28:34 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/29 03:11:15 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/25 02:48:53 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/26 22:15:25 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "../includes/Phonebook.hpp"
+#ifndef SHRUBBERYCREATIONFORM_H
+# define SHRUBBERYCREATIONFORM_H
 
-int	main(void)
+# include "Form.hpp"
+
+class ShrubberyCreationForm : public Form
 {
-	std::string	input;
-	Phonebook	phonebook;
+	public:
 
-	input.clear();
-	while (input != "EXIT")
-	{
-		std::cin >> input;
-		if (input == "ADD")
-			phonebook.add_contact();
-		else if (input == "SEARCH")
-			phonebook.search_contact();
-	}
-	return (0);
-}
+		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm(ShrubberyCreationForm const& src);
+		virtual ~ShrubberyCreationForm();
+
+		virtual void	execute(Bureaucrat const& executor) const;
+};
+
+#endif

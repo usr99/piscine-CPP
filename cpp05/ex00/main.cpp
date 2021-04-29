@@ -5,27 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 17:28:34 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/29 03:11:15 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/24 21:46:22 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/24 21:56:33 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "../includes/Phonebook.hpp"
+#include "Bureaucrat.hpp"
 
 int	main(void)
 {
-	std::string	input;
-	Phonebook	phonebook;
+	Bureaucrat	highest("Sam", 2);
+	Bureaucrat	lowest("Rob", 149);
 
-	input.clear();
-	while (input != "EXIT")
+	std::cout << highest << lowest;
+	highest.increaseGrade();
+	lowest.decreaseGrade();
+	std::cout << highest << lowest;
+
+	try
 	{
-		std::cin >> input;
-		if (input == "ADD")
-			phonebook.add_contact();
-		else if (input == "SEARCH")
-			phonebook.search_contact();
+		highest.increaseGrade();
 	}
+	catch(std::exception const& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+	try
+	{
+		lowest.decreaseGrade();
+	}
+	catch(std::exception const& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
 	return (0);
 }

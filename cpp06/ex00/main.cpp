@@ -5,27 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 17:28:34 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/29 03:11:15 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/28 19:03:37 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/29 02:57:34 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "../includes/Phonebook.hpp"
 
-int	main(void)
+bool	isChar(char c);
+bool	isPrintable(char c);
+
+int		main(int ac, char **av)
 {
-	std::string	input;
-	Phonebook	phonebook;
-
-	input.clear();
-	while (input != "EXIT")
+	if (ac != 2)
 	{
-		std::cin >> input;
-		if (input == "ADD")
-			phonebook.add_contact();
-		else if (input == "SEARCH")
-			phonebook.search_contact();
+		std::cout << "bad args." << std::endl;
+		return (-1);
 	}
+
+
+
 	return (0);
 }

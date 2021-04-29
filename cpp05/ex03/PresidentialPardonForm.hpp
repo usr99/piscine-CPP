@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 17:28:34 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/29 03:11:15 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/25 03:06:48 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/26 13:30:03 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "../includes/Phonebook.hpp"
+#ifndef PRESIDENTIALPARDONFORM_H
+# define PRESIDENTIALPARDONFORM_H
+	
+# include "Form.hpp"
 
-int	main(void)
+class PresidentialPardonForm : public Form
 {
-	std::string	input;
-	Phonebook	phonebook;
+	public:
 
-	input.clear();
-	while (input != "EXIT")
-	{
-		std::cin >> input;
-		if (input == "ADD")
-			phonebook.add_contact();
-		else if (input == "SEARCH")
-			phonebook.search_contact();
-	}
-	return (0);
-}
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(PresidentialPardonForm const& src);
+		virtual ~PresidentialPardonForm();
+
+		virtual void	execute(Bureaucrat const& executor) const;
+
+	private:
+
+		PresidentialPardonForm();
+};
+#endif

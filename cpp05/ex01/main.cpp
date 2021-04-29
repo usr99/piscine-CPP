@@ -5,27 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 17:28:34 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/29 03:11:15 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/24 21:46:22 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/25 01:47:13 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "../includes/Phonebook.hpp"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void)
 {
-	std::string	input;
-	Phonebook	phonebook;
+	Bureaucrat	bur("Sam", 51);
+	Form		form("boring form", 50, 25);
 
-	input.clear();
-	while (input != "EXIT")
-	{
-		std::cin >> input;
-		if (input == "ADD")
-			phonebook.add_contact();
-		else if (input == "SEARCH")
-			phonebook.search_contact();
-	}
+	std::cout << bur << form << std::endl;
+	bur.signForm(form);
+	bur.increaseGrade();
+	std::cout << bur;
+	bur.signForm(form);
+	std::cout << std::endl << form;
+
 	return (0);
 }
