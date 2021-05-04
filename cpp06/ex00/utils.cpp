@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/20 00:40:36 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/20 17:50:46 by mamartin         ###   ########.fr       */
+/*   Created: 2021/04/30 17:34:27 by mamartin          #+#    #+#             */
+/*   Updated: 2021/04/30 17:34:56 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#include "scalar_conversion.hpp"
 
-int main(void)
+bool	isAlpha(char c)
 {
-	Fixed a;
-	Fixed b(a);
-	Fixed c;
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (true);
+	return (false);
+}
 
-	c = b;
-	
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	
-	return 0;
+bool	isDigit(char c)
+{
+	if (c >= '0' && c <= '9')
+		return (true);
+	return (false);
+}
+
+bool	isPrintable(char c)
+{
+	if (c >= 32 && c != 127)
+		return (true);
+	return (false);
 }

@@ -6,7 +6,7 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 18:39:06 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/18 19:41:31 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/04/30 04:16:50 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,3 @@ void		ZombieEvent::randomChump()
 	Zombie zombie(_names[randNameId], _type);
 	zombie.announce();
 }
-

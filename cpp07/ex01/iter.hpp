@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/28 19:03:37 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/30 21:05:22 by mamartin         ###   ########.fr       */
+/*   Created: 2021/05/03 20:25:13 by mamartin          #+#    #+#             */
+/*   Updated: 2021/05/04 17:28:38 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scalar_conversion.hpp"
+#ifndef ITER_H
+# define ITER_H
 
-int		main(int ac, char **av)
+template<typename T>
+void	iter(T* array, int size, void (*f)(T const& element))
 {
-	if (ac != 2)
-	{
-		std::cout << "bad args." << std::endl;
-		return (-1);
-	}
-	return (convert_string(av[1]));
+	for (int i = 0 ; i < size ; i++)
+		(*f)(array[i]);
 }
+
+#endif

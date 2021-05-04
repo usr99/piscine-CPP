@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/28 19:03:37 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/30 21:05:22 by mamartin         ###   ########.fr       */
+/*   Created: 2021/05/03 20:25:13 by mamartin          #+#    #+#             */
+/*   Updated: 2021/05/04 17:22:05 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scalar_conversion.hpp"
+#ifndef WHATEVER_H
+# define WHATEVER_H
 
-int		main(int ac, char **av)
+template<typename T>
+void		swap(T& x, T& y)
 {
-	if (ac != 2)
-	{
-		std::cout << "bad args." << std::endl;
-		return (-1);
-	}
-	return (convert_string(av[1]));
+	T	tmp = x;
+
+	x = y;
+	y = tmp;
 }
+
+template<typename T>
+T const&	min(T& x, T& y)
+{
+	if (x < y)
+		return (x);
+	return (y);
+} 
+
+template<typename T>
+T const&	max(T& x, T& y)
+{
+	if (x > y)
+		return (x);
+	return (y);
+} 
+
+#endif
