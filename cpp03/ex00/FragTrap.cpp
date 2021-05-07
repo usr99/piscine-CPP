@@ -6,13 +6,21 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 02:39:10 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/21 03:47:55 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/05/04 19:27:03 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstdlib>
 #include <ctime>
 #include "FragTrap.hpp"  
+
+std::string	FragTrap::_vaulhunter_outputs[5] = {
+	"FR4G-TP roule sur target. ** VVVVRROOOOOOOM !!! **",
+	"FR4G-TP bondit sur target. ** bruit de bondissement j'imagine **",
+	"FR4G-TP lance une boule de feu sur target, oui oui, il peut faire ça.",
+	"FR4G-TP fusille target du regard.",
+	"FR4G-TP fusille target pour de vrai. Avec le sang."
+};
 
 FragTrap::FragTrap() {}
 
@@ -71,27 +79,17 @@ void		FragTrap::beRepaired(unsigned int amount)
 
 void		FragTrap::vaulthunter_dot_exe(std::string const& target)
 {
-	int	nIdAttack;
+	int		nIdAttack;
+	size_t	pos;
 
 	if (this->_nEnergyPoints < 25)
 	{
 		std::cout << "OOM" << std::endl;
 		return ;
 	}
-
 	nIdAttack = std::rand() % 5;
-
-	if (nIdAttack == 0)
-		std::cout << "FR4G-TP roule sur " << target << ". ** VVVVRROOOOOOOM !!! **" << std::endl;
-	else if (nIdAttack == 1)
-		std::cout << "FR4G-TP bondit sur " << target << ". ** bruit de bondissement j'imagine **" << std::endl;
-	else if (nIdAttack == 2)
-		std::cout << "FR4G-TP lance une boule de feu sur " << target << ", oui oui, il peut faire ça." << std::endl;
-	else if (nIdAttack == 3)
-		std::cout << "FR4G-TP fusille " << target << " du regard." << std::endl;
-	else
-		std::cout << "FR4G-TP fusille " << target << " pour de vrai. Avec le sang." << std::endl;
-
+	pos = FragTrap::_vaulhunter_outputs[nIdAttack].find("target");
+	std::cout << FragTrap::_vaulhunter_outputs[nIdAttack].substr().replace(pos, 6, target) << std::endl;
 	this->_nEnergyPoints -= 25;
 }
 

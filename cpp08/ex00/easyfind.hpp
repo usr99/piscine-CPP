@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 20:25:13 by mamartin          #+#    #+#             */
-/*   Updated: 2021/05/06 21:06:18 by mamartin         ###   ########.fr       */
+/*   Created: 2021/05/05 15:06:32 by mamartin          #+#    #+#             */
+/*   Updated: 2021/05/05 20:11:53 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_H
-# define WHATEVER_H
+#ifndef EASYFIND_H
+# define EASYFIND_H
+
+# include <algorithm>
 
 template<typename T>
-void		swap(T& x, T& y)
+bool	easyfind(T source, int toFind)
 {
-	T	tmp = x;
-
-	x = y;
-	y = tmp;
+	if (find(source.begin(), source.end(), toFind) == source.end())
+		return (false);
+	return (true);
 }
-
-template<typename T>
-T const&	min(T& x, T& y)
-{
-	if (x < y)
-		return (x);
-	return (y);
-} 
-
-template<typename T>
-T const&	max(T& x, T& y)
-{
-	if (x > y)
-		return (x);
-	return (y);
-} 
 
 #endif

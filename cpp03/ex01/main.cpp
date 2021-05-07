@@ -6,33 +6,31 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 03:25:29 by mamartin          #+#    #+#             */
-/*   Updated: 2021/05/04 20:20:54 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/05/04 19:46:02 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "SuperTrap.hpp"
+#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
 int	main(void)
 {
-	NinjaTrap	ninja("shinobi");
-	SuperTrap	super("shoebox");
+	ScavTrap	scav("numéro 0x000002");
 
-	/* ***  TEST SUPERTRAP *** */
+	/* ***  TEST SCAVTRAP *** */
 
-	std::cout << "\033[34;01m" << "***  TEST SUPERTRAP ***" << "\033[00m" << std::endl;
+	scav.meleeAttack("un ennemi random");
+	scav.rangedAttack("Zangdar le sorcier");
 
-	super.meleeAttack("un ennemi random");
-	super.rangedAttack("Zangdar le sorcier");
+	std::cout << scav.getHitPoints() << "HP" << std::endl;
+	scav.takeDamage(120);
+	std::cout << scav.getHitPoints() << "HP" << std::endl;
+	scav.beRepaired(300);
+	std::cout << scav.getHitPoints() << "HP" << std::endl;
 
-	std::cout << super.getHitPoints() << "HP" << std::endl;
-	super.takeDamage(120);
-	std::cout << super.getHitPoints() << "HP" << std::endl;
-	super.beRepaired(300);
-	std::cout << super.getHitPoints() << "HP" << std::endl;
-
-	super.ninjaShoebox(ninja);
-	super.vaulthunter_dot_exe("le correcteur");
+	scav.challengeNewcomer();
+	scav.challengeNewcomer();
+	scav.challengeNewcomer();
 
 	return (0);
 }

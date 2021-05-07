@@ -6,7 +6,7 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 02:31:51 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/21 03:43:24 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/05/04 19:13:36 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,16 @@ class FragTrap
 
 	private:
 
-		int			_nHitPoints;
-		int			_nMaxHitPoints;
-		int			_nEnergyPoints;
-		int			_nMaxEnergyPoints;
-		int			_nLevel;
-		std::string	_sName;
-		int			_nMeleeAttackDmg;
-		int			_nRangedAttackDmg;
-		int			_nArmorDmgReduction;
+		int					_nHitPoints;
+		int					_nMaxHitPoints;
+		int					_nEnergyPoints;
+		int					_nMaxEnergyPoints;
+		int					_nLevel;
+		std::string			_sName;
+		int					_nMeleeAttackDmg;
+		int					_nRangedAttackDmg;
+		int					_nArmorDmgReduction;
+		static std::string	_vaulhunter_outputs[5];
 };
 
 #endif

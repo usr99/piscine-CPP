@@ -5,34 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 03:25:29 by mamartin          #+#    #+#             */
-/*   Updated: 2021/05/04 20:20:54 by mamartin         ###   ########.fr       */
+/*   Created: 2021/05/06 17:24:22 by mamartin          #+#    #+#             */
+/*   Updated: 2021/05/06 23:05:31 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "SuperTrap.hpp"
-#include "ScavTrap.hpp"
+#include <iostream>
+#include "mutantstack.hpp"
 
 int	main(void)
 {
-	NinjaTrap	ninja("shinobi");
-	SuperTrap	super("shoebox");
+	std::cout << std::endl << "--- Stack Tests ---" << std::endl << std::endl;
+	
+	MutantStack<int>	ms;
 
-	/* ***  TEST SUPERTRAP *** */
+	ms.push(10);
+	ms.push(25);
+	ms.push(32);
+	ms.push(22);
 
-	std::cout << "\033[34;01m" << "***  TEST SUPERTRAP ***" << "\033[00m" << std::endl;
+	MutantStack<int>	pp;
 
-	super.meleeAttack("un ennemi random");
-	super.rangedAttack("Zangdar le sorcier");
+	std::cout << ms.top() << std::endl;
+	pp = ms;
+	std::cout << pp.top() << std::endl;
+	pp.pop();
+	std::cout << pp.top() << std::endl;
 
-	std::cout << super.getHitPoints() << "HP" << std::endl;
-	super.takeDamage(120);
-	std::cout << super.getHitPoints() << "HP" << std::endl;
-	super.beRepaired(300);
-	std::cout << super.getHitPoints() << "HP" << std::endl;
+	std::cout << std::endl << "--- Iterators Tests ---" << std::endl << std::endl;
 
-	super.ninjaShoebox(ninja);
-	super.vaulthunter_dot_exe("le correcteur");
+	MutantStack<int>::iterator	it = ms.begin();
+	MutantStack<int>::iterator	ite = ms.end();
+
+	++it;
+	--it;
+	while (it != ite)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
 
 	return (0);
 }
