@@ -6,7 +6,7 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 22:12:14 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/27 01:19:58 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/05/08 03:09:20 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Form::Form() : _signGrade(150), _execGrade(150) {}
 
 Form::Form(std::string name, int signingGrade, int executionGrade, std::string target) :
-_name(name), _isSigned(false), _signGrade(signingGrade), _execGrade(executionGrade), _target(target)
+_isSigned(false), _target(target), _name(name),_signGrade(signingGrade), _execGrade(executionGrade)
 {
 	if (signingGrade < 1)
 		throw GradeTooHighException();

@@ -6,7 +6,7 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 03:06:48 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/26 13:30:03 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/05/08 03:00:40 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class PresidentialPardonForm : public Form
 		PresidentialPardonForm(PresidentialPardonForm const& src);
 		virtual ~PresidentialPardonForm();
 
-		virtual void	execute(Bureaucrat const& executor) const;
+		virtual void			execute(Bureaucrat const& executor) const;
+		PresidentialPardonForm&	operator=(PresidentialPardonForm const& src);
 
 	private:
 

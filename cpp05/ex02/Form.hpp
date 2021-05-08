@@ -6,7 +6,7 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 22:12:16 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/27 00:31:37 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/05/08 03:06:52 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ class Form
 	protected:
 
 		void				checkIfExecutable(Bureaucrat const& executor) const;
+		bool				_isSigned;
+		std::string			_target;
 
 	private:
 
@@ -63,10 +65,8 @@ class Form
 		};
 
 		std::string const	_name;
-		bool				_isSigned;
 		int const			_signGrade;
 		int const			_execGrade;
-		std::string			_target;
 };
 
 std::ostream&				operator<<(std::ostream& output, Form const& form);

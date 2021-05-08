@@ -6,7 +6,7 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 02:48:53 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/26 22:15:25 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/05/08 03:08:08 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm(ShrubberyCreationForm const& src);
 		virtual ~ShrubberyCreationForm();
 
-		virtual void	execute(Bureaucrat const& executor) const;
+		virtual void			execute(Bureaucrat const& executor) const;
+		ShrubberyCreationForm&	operator=(ShrubberyCreationForm const& src);
 };
 
 #endif
