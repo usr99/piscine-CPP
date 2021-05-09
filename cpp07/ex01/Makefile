@@ -6,10 +6,10 @@ CC		= clang++
 RM		= rm -rf
 
 %.o:	%.cpp
-		${CC} ${CFLAGS} -c $< -o $@
+		${CC} ${CFLAGS} -c $< -o $@ -I iter.hpp
 
 ${NAME}:${OBJ}
-		${CC} ${CFLAGS} -o $@ ${OBJ}
+		${CC} ${CFLAGS} -o $@ ${OBJ} -I iter.hpp
 
 all:	${NAME}
 

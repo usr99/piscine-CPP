@@ -6,7 +6,7 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 17:31:44 by mamartin          #+#    #+#             */
-/*   Updated: 2021/05/06 21:14:19 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/05/09 14:29:17 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Array
 
 		Array(unsigned int n) : _size(n)
 		{
-			this->_tab = new T[n];
+			this->_tab = new T[n]();
 		}
 
 		Array(Array const& src)
@@ -44,9 +44,9 @@ class Array
 			return (this->_size);
 		}
 
-		T&		operator[](int index) const
+		T&		operator[](unsigned int index) const
 		{
-			if (index < 0 || index >= this->_size)
+			if (index >= this->_size)
 				throw std::out_of_range("index is out of range");
 			return (this->_tab[index]);
 		}
@@ -59,7 +59,7 @@ class Array
 			this->_size = src._size;
 			this->_tab = new T[this->_size];
 
-			for (int i = 0 ; i < this->_size ; i++)
+			for (unsigned int i = 0 ; i < this->_size ; i++)
 				this->_tab[i] = src._tab[i];
 
 			return (*this);
@@ -67,8 +67,8 @@ class Array
 
 	private:
 
-		T*	_tab;
-		int	_size;
+		T*				_tab;
+		unsigned int	_size;
 };
 
 #endif
