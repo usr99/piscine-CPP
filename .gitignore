@@ -1,0 +1,12 @@
+# binaries
+a.out
+
+# object files
+*.o
+
+# vscode config
+.vscode
+
+# output files from tests
+*.replace
+

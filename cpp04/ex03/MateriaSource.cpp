@@ -6,7 +6,7 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 02:48:30 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/24 18:00:26 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/05/08 19:19:13 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@ MateriaSource::MateriaSource() : _count(0)
 	this->_materias[3] = NULL;
 }
 
-MateriaSource::MateriaSource(MateriaSource const& src)	{ *this = src; }
+MateriaSource::MateriaSource(MateriaSource const& src)
+{
+	this->_materias[0] = NULL;
+	this->_materias[1] = NULL;
+	this->_materias[2] = NULL;
+	this->_materias[3] = NULL;
+	*this = src;
+}
 
 MateriaSource::~MateriaSource()							{ destroyMaterias(); }
 

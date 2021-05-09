@@ -6,7 +6,7 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 22:57:53 by mamartin          #+#    #+#             */
-/*   Updated: 2021/05/08 03:19:46 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/05/08 15:57:12 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,14 @@ void	identify_from_pointer(Base* p)
 		std::cout << 'C' << std::endl;
 }
 
-void 	identify_from_reference( Base & p)
+void 	identify_from_reference(Base & p)
 {
 	try
 	{
 		A& ref = dynamic_cast<A&>(p);
 		std::cout << 'A' << std::endl;
 		(void)ref;
+		return ;
 	}
 	catch(const std::exception	&e) {}
 	
@@ -64,6 +65,7 @@ void 	identify_from_reference( Base & p)
 		B& ref = dynamic_cast<B&>(p);
 		std::cout << 'B' << std::endl;
 		(void)ref;
+		return ;
 	}
 	catch(const std::exception	&e) {}
 
@@ -72,6 +74,7 @@ void 	identify_from_reference( Base & p)
 		C& ref = dynamic_cast<C&>(p);
 		std::cout << 'C' << std::endl;
 		(void)ref;
+		return ;
 	}
 	catch(const std::exception	&e) {}
 }

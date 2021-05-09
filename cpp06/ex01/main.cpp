@@ -6,7 +6,7 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 22:13:05 by mamartin          #+#    #+#             */
-/*   Updated: 2021/04/30 22:53:30 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/05/09 12:35:06 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	main(void)
 	std::cout << data->s2 << std::endl;
 
 	delete data;
-	delete reinterpret_cast<char*>(raw);
+	delete [] reinterpret_cast<char*>(raw);
 
 	return (0);
 }
