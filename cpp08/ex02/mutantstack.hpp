@@ -6,7 +6,7 @@
 /*   By: mamartin <mamartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 17:18:27 by mamartin          #+#    #+#             */
-/*   Updated: 2021/05/06 23:04:28 by mamartin         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:44:29 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,15 @@ class MutantStack : public std::stack<T>
 				iterator&	operator--(void)					{ this->ptr--; return (*this); }
 				T&			operator*(void)						{ return (*ptr); }
 				bool		operator!=(const iterator& rhs)		{ return (ptr != rhs.ptr); }
+				bool		operator>=(const iterator& rhs)		{ return (ptr >= rhs.ptr); }
 
 			private:
 		
 				T*			ptr;
 		};
 
-		MutantStack(void) : std::stack<T>() {}
-		MutantStack(const MutantStack<T>& rhs) : std::stack<T>(rhs) {}
+		MutantStack(void) : std::stack<T>(), it(NULL), ite(NULL) {}
+		MutantStack(const MutantStack<T>& rhs) : std::stack<T>(rhs) { *this = rhs; }
 		virtual ~MutantStack(void) {}
 		
 		void		pop(void)
@@ -77,6 +78,26 @@ class MutantStack : public std::stack<T>
 		MutantStack<T> &operator=(const MutantStack<T>& rhs)
 		{
 			static_cast<std::stack<T> >(*this) = std::stack<T>::operator=(static_cast<std::stack<T> >(rhs));
+
+			T*	tmp = new T[rhs.size()];
+
+			int	i = this->size() - 1;
+			while (!this->empty())
+			{
+				tmp[i] = this->top();
+				this->pop();
+				i--;
+			}
+
+			i = 0;
+			while (this->size() < rhs.size())
+			{
+				this->push(tmp[i]);
+				i++;
+			}
+
+			delete [] tmp;
+
 			return (*this);
 		}
 
